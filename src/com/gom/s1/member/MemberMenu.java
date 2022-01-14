@@ -10,6 +10,7 @@ public class MemberMenu {
 		MemberView memberView = new MemberView();
 		Scanner sc = new Scanner(System.in);
 		ArrayList<MemberDTO> ar = new ArrayList<>();
+		memberData.memberInfo(ar);
 		boolean flag = true;
 		while(flag) {
 			System.out.println("1. 주소록 전체 출력");
@@ -22,13 +23,11 @@ public class MemberMenu {
 			switch(select) {
 			case 1: 
 				System.out.println("=======	1. 주소록 전체 출력=====");
-				memberView.membersOut(ar);
-				
-				
+				memberView.view(ar);								
 				break;
 			case 2:
 				System.out.println("=======	2. 주소록 검색 ========");
-				
+				memberView.search(ar);
 				break;
 			case 3:
 				System.out.println("=======	3. 주소록 명단 추가 =====");
@@ -39,7 +38,12 @@ public class MemberMenu {
 				break;
 			case 4:
 				System.out.println("======= 4. 주소록 명단 제거 =====");
-				memberData.removeMember(ar);
+				boolean result = memberData.removeMember(ar);
+				if(result) {
+					System.out.println("성공");
+				}else {
+					System.out.println("실패");
+				}				
 				break;
 			case 5:
 				System.out.println("======= 5. 시스템 종료 =========");				
