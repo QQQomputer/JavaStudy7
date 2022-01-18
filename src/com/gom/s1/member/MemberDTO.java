@@ -1,12 +1,14 @@
 package com.gom.s1.member;
 
+import java.util.Calendar;
+
 public class MemberDTO {
 
 	private String name;
 	private String nick;
 	private String email;
 	private String number;
-	private String birth;
+	private Calendar birth;
 	
 	public String getName() {
 		return name;
@@ -32,11 +34,14 @@ public class MemberDTO {
 	public void setNumber(String number) {
 		this.number = number;
 	}
-	public String getBirth() {
+	public Calendar getBirth() {
+		
+		
 		return birth;
 	}
-	public void setBirth(String birth) {
+	public void setBirth(Calendar birth) {
 		this.birth = birth;
 	}
+
 	
 }

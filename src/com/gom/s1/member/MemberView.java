@@ -1,5 +1,6 @@
 package com.gom.s1.member;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,8 +34,9 @@ public class MemberView {
 	}
 	
 	public void view(MemberDTO memberDTO) {
-						
-		System.out.println(memberDTO.getName()+"\t"+memberDTO.getNick()+"\t"+memberDTO.getEmail()+"\t"+memberDTO.getNumber()+"\t"+memberDTO.getBirth());	
+		String pattern = "yyyy-MM-dd (E)";
+		SimpleDateFormat sd = new SimpleDateFormat(pattern);			
+		System.out.println(memberDTO.getName()+"\t"+memberDTO.getNick()+"\t"+memberDTO.getEmail()+"\t"+memberDTO.getNumber()+"\t"+sd.format(memberDTO.getBirth().getTime()));	
 		
 	}
 	
@@ -55,6 +57,24 @@ public class MemberView {
 		}
 		if(!check) {
 			System.out.println("정보를 찾을 수 없습니다.");
-		}				
+		}					
 	}	
+	
+	/*public 
+	 
+	 	String pattern = "YYYY년MM월dd일 - HH:mm:ss";
+		SimpleDateFormat sd = new SimpleDateFormat(pattern);
+		String r = sd.format(ca.getTime());
+		System.out.println(r);
+		
+		pattern = "yyyy-MM-dd (E)";
+		sd.applyPattern(pattern);
+		
+		System.out.println(sd.format(ca.getTime()));
+	 
+	 
+	 
+	 
+	 
+	 */
 }
